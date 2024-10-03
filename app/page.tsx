@@ -71,7 +71,7 @@ export default function Home() {
                 />
                 <h2 className="text-3xl font-bold mb-2">Trust The Process</h2>
                 <p className="text-green-100 text-lg">
-                  Your Health, Our Priority
+                  An apple a day keeps a doctor away!
                 </p>
               </div>
               <div className="mt-6">
