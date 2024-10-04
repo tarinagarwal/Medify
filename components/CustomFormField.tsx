@@ -39,7 +39,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
   switch (props.fieldType) {
     case FormFieldType.INPUT:
       return (
-        <div className="flex rounded-md border border-green-300 bg-green-50">
+        <div className="flex rounded-md border border-blue-300 bg-blue-50">
           {props.iconSrc && (
             <Image
               src={props.iconSrc}
@@ -53,7 +53,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             <Input
               placeholder={props.placeholder}
               {...field}
-              className="border-0 bg-transparent text-green-800 placeholder-green-500 focus:ring-0 focus:ring-offset-0"
+              className="border-0 bg-transparent text-blue-800 placeholder-blue-500 focus:ring-0 focus:ring-offset-0"
             />
           </FormControl>
         </div>
@@ -69,14 +69,14 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             //@ts-ignore
             value={field.value as E164Number | undefined}
             onChange={field.onChange}
-            className="rounded-md border border-green-300 bg-green-50 text-green-800 placeholder-green-500"
+            className="rounded-md border border-blue-300 bg-blue-50 text-blue-800 placeholder-blue-500"
           />
         </FormControl>
       );
 
     case FormFieldType.DATE_PICKER:
       return (
-        <div className="flex rounded-md border border-green-300 bg-green-50">
+        <div className="flex rounded-md border border-blue-300 bg-blue-50">
           <Image
             src="/assets/icon/calendar.svg"
             height={24}
@@ -89,7 +89,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
               selected={field.value}
               onChange={(date) => field.onChange(date)}
               dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
-              className="w-full border-0 bg-transparent text-green-800 placeholder-green-500 focus:ring-0 focus:ring-offset-0 p-2"
+              className="w-full border-0 bg-transparent text-blue-800 placeholder-blue-500 focus:ring-0 focus:ring-offset-0 p-2"
               placeholderText="Select date"
               timeInputLabel="Time:"
               showTimeSelect={props.showTimeSelect ?? false}
@@ -103,11 +103,11 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
         <FormControl>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
-              <SelectTrigger className="w-full rounded-md border border-green-300 bg-green-50 text-green-800 focus:ring-green-500 focus:border-green-500">
+              <SelectTrigger className="w-full rounded-md border border-blue-300 bg-blue-50 text-blue-800 focus:ring-blue-500 focus:border-blue-500">
                 <SelectValue placeholder={props.placeholder} />
               </SelectTrigger>
             </FormControl>
-            <SelectContent className=" border border-green-300">
+            <SelectContent className="border border-blue-300">
               {props.children}
             </SelectContent>
           </Select>
@@ -117,7 +117,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
     case FormFieldType.SKELETON:
       return props.renderSkeleton ? (
         <div
-          className={`rounded-md border border-green-300 bg-green-50 ${
+          className={`rounded-md border border-blue-300 bg-blue-50 ${
             props.name === "gender" ? "p-2 h-[42px] flex items-center" : "p-4"
           }`}
         >
@@ -133,11 +133,11 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
               id={props.name}
               checked={field.value}
               onCheckedChange={field.onChange}
-              className="h-5 w-5 rounded border-green-300 text-green-600 focus:ring-green-500"
+              className="h-5 w-5 rounded border-blue-300 text-blue-600 focus:ring-blue-500"
             />
             <label
               htmlFor={props.name}
-              className="text-sm font-medium text-green-700 cursor-pointer"
+              className="text-sm font-medium text-blue-700 cursor-pointer"
             >
               {props.label}
             </label>
@@ -151,7 +151,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
           <Textarea
             placeholder={props.placeholder}
             {...field}
-            className="w-full rounded-md border border-green-300 bg-green-50 text-green-800 placeholder-green-500 focus:ring-green-500 focus:border-green-500 min-h-[100px] resize-y"
+            className="w-full rounded-md border border-blue-300 bg-blue-50 text-blue-800 placeholder-blue-500 focus:ring-blue-500 focus:border-blue-500 min-h-[100px] resize-y"
             disabled={props.disabled}
           />
         </FormControl>
@@ -170,7 +170,7 @@ const CustomFormField = (props: CustomProps) => {
       render={({ field }) => (
         <FormItem className="flex-1">
           {fieldType !== FormFieldType.CHECKBOX && label && (
-            <FormLabel className="text-green-700">{label}</FormLabel>
+            <FormLabel className="text-blue-700">{label}</FormLabel>
           )}
 
           <RenderField field={field} props={props} />

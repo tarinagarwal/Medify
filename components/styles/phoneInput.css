@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   border-radius: 0.375rem;
-  border: 1px solid #86efac;
-  background-color: #f0fdf4;
+  border: 1px solid #93c5fd;
+  background-color: #eff6ff;
   padding: 0.5rem;
 }
 
@@ -14,19 +14,19 @@
 .PhoneInputCountrySelect {
   background-color: transparent;
   border: none;
-  color: #166534;
+  color: #1e40af;
 }
 
 .PhoneInputInput {
   flex: 1;
   border: none;
   background-color: transparent;
-  color: #166534;
+  color: #1e40af;
   outline: none;
 }
 
 .PhoneInputInput::placeholder {
-  color: #4ade80;
+  color: #60a5fa;
 }
 
 .PhoneInputInput:focus {

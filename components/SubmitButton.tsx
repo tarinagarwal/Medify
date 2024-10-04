@@ -14,7 +14,7 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
       disabled={isLoading}
       className={`${
         className ?? "w-full"
-      } bg-green-600 hover:bg-green-700 text-white`}
+      } bg-blue-600 hover:bg-blue-700 text-white`}
     >
       {isLoading ? (
         <div className="flex items-center gap-4">

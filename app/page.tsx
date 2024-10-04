@@ -13,9 +13,9 @@ export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-green-100 to-green-200 p-6 md:p-12">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-6 md:p-12">
       <div className="max-w-7xl mx-auto">
-        <header className="flex items-center justify-between mb-12 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-4 shadow-lg">
+        <header className="flex items-center justify-between mb-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-4 shadow-lg">
           <div className="flex items-center space-x-3">
             <Image
               src="/logo/logo.png"
@@ -28,7 +28,7 @@ export default function Home() {
           </div>
           <Link
             href="/?admin=true"
-            className="text-sm text-green-700 flex items-center bg-white px-4 py-2 rounded-full shadow-md hover:bg-green-50 transition-colors duration-300"
+            className="text-sm text-blue-700 flex items-center bg-white px-4 py-2 rounded-full shadow-md hover:bg-blue-50 transition-colors duration-300"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -43,14 +43,14 @@ export default function Home() {
         </header>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <Card className="md:col-span-2 bg-white bg-opacity-90 backdrop-blur-lg shadow-xl rounded-3xl overflow-hidden border-t-4 border-green-500">
-            <CardHeader className="bg-gradient-to-r from-green-600 to-green-700 text-white p-6">
+          <Card className="md:col-span-2 bg-white bg-opacity-90 backdrop-blur-lg shadow-xl rounded-3xl overflow-hidden border-t-4 border-blue-500">
+            <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
               <CardTitle className="text-3xl font-bold">
                 Welcome to Medify
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
-              <p className="text-green-800 mb-6 text-lg">
+              <p className="text-blue-800 mb-6 text-lg">
                 Your trusted healthcare management system. We prioritize your
                 health and well-being with cutting-edge technology and
                 compassionate care.
@@ -59,25 +59,25 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-green-600 to-green-700 text-white shadow-xl rounded-3xl overflow-hidden">
+          <Card className="bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-xl rounded-3xl overflow-hidden">
             <CardContent className="flex flex-col justify-between h-full p-6">
               <div>
                 <Image
-                  src="/logo/heroimg.jpg"
+                  src="/logo/heroimg.png"
                   width={400}
                   height={250}
                   alt="Medify | Trust The Process"
                   className="rounded-xl mb-6 w-full object-cover shadow-lg"
                 />
                 <h2 className="text-3xl font-bold mb-2">Trust The Process</h2>
-                <p className="text-green-100 text-lg">
+                <p className="text-blue-100 text-lg">
                   An apple a day keeps a doctor away!
                 </p>
               </div>
               <div className="mt-6">
                 <Button
                   variant="secondary"
-                  className="w-full text-green-700 font-semibold hover:bg-green-50 hover:text-green-600 transition-colors duration-300"
+                  className="w-full text-blue-700 font-semibold hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
                 >
                   Learn More
                 </Button>
@@ -92,17 +92,17 @@ export default function Home() {
               {
                 icon: User,
                 label: "Patient-Centric",
-                color: "from-green-500 to-green-600",
+                color: "from-blue-500 to-blue-600",
               },
               {
                 icon: Stethoscope,
                 label: "Expert Care",
-                color: "from-green-600 to-green-700",
+                color: "from-blue-600 to-blue-700",
               },
               {
                 icon: Heart,
                 label: "Compassionate",
-                color: "from-green-700 to-green-800",
+                color: "from-blue-700 to-blue-800",
               },
             ].map((item, index) => (
               <Card
@@ -115,14 +115,14 @@ export default function Home() {
                   >
                     <item.icon className="h-8 w-8 text-white" />
                   </div>
-                  <span className="text-lg font-semibold text-green-800">
+                  <span className="text-lg font-semibold text-blue-800">
                     {item.label}
                   </span>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <footer className="text-center text-lg text-white bg-gradient-to-br from-green-600 to-green-700 backdrop-blur-md rounded-full py-3 mt-8">
+          <footer className="text-center text-lg text-white bg-gradient-to-br from-blue-600 to-blue-700 backdrop-blur-md rounded-full py-3 mt-8">
             &copy; 2024{" "}
             <a
               href="https://tarin-agarwal.web.app/"

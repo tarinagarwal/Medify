@@ -7,9 +7,9 @@ import { Form, FormControl } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { useState } from "react";
-import { PatientFormValidation, UserFormValidation } from "@/lib/validation";
+import { PatientFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
-import { createUser, registerPatient } from "@/lib/actions/patient.actions";
+import { registerPatient } from "@/lib/actions/patient.actions";
 import { FormFieldType } from "./PatientForm";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import {
@@ -94,7 +94,7 @@ const RegisterForm = ({ user }: { user: User }) => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
         <section className="mb-12 space-y-4">
-          <h2 className="text-2xl font-bold text-green-800">
+          <h2 className="text-2xl font-bold text-blue-800">
             Personal Information
           </h2>
         </section>
@@ -196,7 +196,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         </div>
 
         <section className="mb-12 space-y-4">
-          <h2 className="text-2xl font-bold text-green-800">
+          <h2 className="text-2xl font-bold text-blue-800">
             Medical Information
           </h2>
         </section>
@@ -216,9 +216,9 @@ const RegisterForm = ({ user }: { user: User }) => {
                   width={32}
                   height={32}
                   alt="doctor"
-                  className="rounded-full border border-green-300 doctor-image"
+                  className="rounded-full border border-blue-300 doctor-image"
                 />
-                <p className="text-green-800">{doctor.name}</p>
+                <p className="text-blue-800">{doctor.name}</p>
               </div>
             </SelectItem>
           ))}
@@ -268,13 +268,12 @@ const RegisterForm = ({ user }: { user: User }) => {
             control={form.control}
             name="pastMedicalHistory"
             label="Past Medical History (If Any)"
-            placeholder="e.g., Heart Disease, Knee Surgery, Stroke
-"
+            placeholder="e.g., Heart Disease, Knee Surgery, Stroke"
           />
         </div>
 
         <section className="mb-12 space-y-4">
-          <h2 className="text-2xl font-bold text-green-800">
+          <h2 className="text-2xl font-bold text-blue-800">
             Identification and Verification
           </h2>
         </section>
@@ -289,7 +288,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           {IdentificationTypes.map((type) => (
             <SelectItem key={type} value={type}>
               <div className="flex cursor-pointer items-center gap-2">
-                <p className="text-green-800">{type}</p>
+                <p className="text-blue-800">{type}</p>
               </div>
             </SelectItem>
           ))}
@@ -316,7 +315,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         />
 
         <section className="mb-12 space-y-4">
-          <h2 className="text-2xl font-bold text-green-800">
+          <h2 className="text-2xl font-bold text-blue-800">
             Consent and Privacy
           </h2>
         </section>
@@ -342,8 +341,6 @@ const RegisterForm = ({ user }: { user: User }) => {
           label="I acknowledge that I have reviewed and agree to the
             privacy policy"
         />
-
-        <div className="flex flex-col gap-6 xl:flex-row"></div>
 
         <SubmitButton isLoading={isLoading}>Submit and Continue</SubmitButton>
       </form>
