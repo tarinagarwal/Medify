@@ -12,7 +12,13 @@ import { FormFieldType } from "./forms/PatientForm";
 import Image from "next/image";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-import "./phoneInput.css";
+import "./styles/phoneInput.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./styles/customFormField.css";
+import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
+import { Textarea } from "./ui/textarea";
+import { Checkbox } from "./ui/checkbox";
 
 interface CustomProps {
   control: Control<any>;
@@ -67,8 +73,91 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
           />
         </FormControl>
       );
+
+    case FormFieldType.DATE_PICKER:
+      return (
+        <div className="flex rounded-md border border-green-300 bg-green-50">
+          <Image
+            src="/assets/icon/calendar.svg"
+            height={24}
+            width={24}
+            alt="calendar"
+            className="ml-2 my-auto"
+          />
+          <FormControl>
+            <DatePicker
+              selected={field.value}
+              onChange={(date) => field.onChange(date)}
+              dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
+              className="w-full border-0 bg-transparent text-green-800 placeholder-green-500 focus:ring-0 focus:ring-offset-0 p-2"
+              placeholderText="Select date"
+              timeInputLabel="Time:"
+              showTimeSelect={props.showTimeSelect ?? false}
+            />
+          </FormControl>
+        </div>
+      );
+
+    case FormFieldType.SELECT:
+      return (
+        <FormControl>
+          <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormControl>
+              <SelectTrigger className="w-full rounded-md border border-green-300 bg-green-50 text-green-800 focus:ring-green-500 focus:border-green-500">
+                <SelectValue placeholder={props.placeholder} />
+              </SelectTrigger>
+            </FormControl>
+            <SelectContent className=" border border-green-300">
+              {props.children}
+            </SelectContent>
+          </Select>
+        </FormControl>
+      );
+
+    case FormFieldType.SKELETON:
+      return props.renderSkeleton ? (
+        <div
+          className={`rounded-md border border-green-300 bg-green-50 ${
+            props.name === "gender" ? "p-2 h-[42px] flex items-center" : "p-4"
+          }`}
+        >
+          {props.renderSkeleton(field)}
+        </div>
+      ) : null;
+
+    case FormFieldType.CHECKBOX:
+      return (
+        <FormControl>
+          <div className="flex items-center gap-4">
+            <Checkbox
+              id={props.name}
+              checked={field.value}
+              onCheckedChange={field.onChange}
+              className="h-5 w-5 rounded border-green-300 text-green-600 focus:ring-green-500"
+            />
+            <label
+              htmlFor={props.name}
+              className="text-sm font-medium text-green-700 cursor-pointer"
+            >
+              {props.label}
+            </label>
+          </div>
+        </FormControl>
+      );
+
+    case FormFieldType.TEXTAREA:
+      return (
+        <FormControl>
+          <Textarea
+            placeholder={props.placeholder}
+            {...field}
+            className="w-full rounded-md border border-green-300 bg-green-50 text-green-800 placeholder-green-500 focus:ring-green-500 focus:border-green-500 min-h-[100px] resize-y"
+            disabled={props.disabled}
+          />
+        </FormControl>
+      );
     default:
-      break;
+      return null;
   }
 };
 
