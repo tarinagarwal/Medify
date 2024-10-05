@@ -55,6 +55,7 @@ export default async function NewAppointment({
               </p>
             </CardHeader>
             <CardContent className="p-6">
+              
               <AppointmentForm
                 type="create"
                 userId={userId}

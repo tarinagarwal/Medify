@@ -1,44 +1,36 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Heart, Stethoscope, User, ArrowRight } from "lucide-react";
+import { Heart, Stethoscope, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import PatientForm from "@/components/forms/PatientForm";
+import { PasskeyModal } from "@/components/PasskeyModal";
 
-export default function Home() {
-  const [isHovered, setIsHovered] = useState(false);
+export default function Home({ searchParams }: SearchParamProps) {
+  const isAdmin = searchParams.admin === "true";
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 p-6 md:p-12">
       <div className="max-w-7xl mx-auto">
+        {isAdmin && <PasskeyModal />}
         <header className="flex items-center justify-between mb-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-4 shadow-lg">
-          <div className="flex items-center space-x-3">
-            <Image
-              src="/logo/logo.png"
-              height={50}
-              width={50}
-              alt="Medify"
-              className="rounded-full border-2 border-white shadow-md"
-            />
-            <h1 className="text-3xl font-bold text-white">Medify</h1>
-          </div>
+          <Link href="/">
+            <div className="flex items-center space-x-3">
+              <Image
+                src="/logo/logo.png"
+                height={50}
+                width={50}
+                alt="Medify"
+                className="rounded-full border-2 border-white shadow-md"
+              />
+              <h1 className="text-3xl font-bold text-white">Medify</h1>
+            </div>
+          </Link>
           <Link
             href="/?admin=true"
             className="text-sm text-blue-700 flex items-center bg-white px-4 py-2 rounded-full shadow-md hover:bg-blue-50 transition-colors duration-300"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
           >
             Admin Login
-            <motion.div
-              animate={{ x: isHovered ? 5 : 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </motion.div>
           </Link>
         </header>
 
