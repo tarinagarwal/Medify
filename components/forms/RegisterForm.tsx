@@ -77,7 +77,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           : undefined,
         privacyConsent: values.privacyConsent,
       };
-
+      //@ts-ignore
       const newPatient = await registerPatient(patient);
 
       if (newPatient) {
@@ -334,13 +334,13 @@ const RegisterForm = ({ user }: { user: User }) => {
             information for treatment purposes."
         />
 
-        <CustomFormField
+        {/* <CustomFormField
           fieldType={FormFieldType.CHECKBOX}
           control={form.control}
           name="privacyConsent"
           label="I acknowledge that I have reviewed and agree to the
             privacy policy"
-        />
+        /> */}
 
         <SubmitButton isLoading={isLoading}>Submit and Continue</SubmitButton>
       </form>
