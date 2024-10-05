@@ -56,6 +56,19 @@ export default async function AdminPage() {
           </section>
 
           <DataTable columns={columns} data={appointments.documents} />
+
+          <footer className="text-center text-lg text-white bg-gradient-to-br from-blue-600 to-blue-700 backdrop-blur-md rounded-full py-3 mt-8">
+            &copy; 2024{" "}
+            <a
+              href="https://tarin-agarwal.web.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Tarin Agarwal
+            </a>{" "}
+            | Medify
+          </footer>
         </main>
       </div>
     </div>
